@@ -7,23 +7,25 @@
 ## Usage
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | bash
+wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | bash
 ```
 
-## Silent Mode
+### Silent Mode
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | NODE_PRUNE_SILENT=1 bash
+wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | PRUNE_SILENTLY=1 bash
 ```
 
 or
 
 ```bash
-export NODE_PRUNE_SILENT=1
-wget -qO- https://raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | bash
+export PRUNE_SILENTLY=1
+wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | bash
 ```
 
-## Credits
+---
+
+### Credits
 
 This is a fork of the **excellent** [npmprune](https://github.com/xthezealot/npmprune) project
 

@@ -98,7 +98,7 @@ done
 
 
 # skip if silent mode
-[[ -n "$NODE_PRUNE_SILENT" ]] && exit
+[[ -n "$PRUNE_SILENTLY" ]] && exit
 
 # files count + total size after
 COUNT_2=$(find node_modules | wc -l | xargs)
@@ -110,9 +110,10 @@ COUNT=$(bc <<< "$COUNT_1 - $COUNT_2")
 
 # compute size removed
 SIZE=$(bc -l <<< "($SIZE_1 - $SIZE_2) * 0.001")
-[[ ${SIZE:0:1} == '.' ]] && SIZE=0${SIZE};
-SIZE=$(awk -v v=$SIZE 'BEGIN{i=index(v,"."); if(i==0){print v}; print substr(v,0,i+2) }')
-
+if [[ $SIZE != 0 ]]; then
+  [[ ${SIZE:0:1} == '.' ]] && SIZE=0${SIZE};
+  SIZE=$(awk -v v=$SIZE 'BEGIN{i=index(v,"."); if(i==0){print v}; print substr(v,0,i+2) }')
+fi
 
 echo
 printf "$(tput bold)         files total$(tput sgr0) %i\n" $COUNT_2
