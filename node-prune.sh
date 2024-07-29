@@ -119,7 +119,7 @@ if [[ -n "$PRUNE_SIMPLY" ]]
 then
   echo files total: $COUNT_2
   echo files removed: $COUNT_2
-  echo size removed: $SIZE 
+  echo size removed: $SIZE Mb
   exit
 fi
 
