@@ -114,17 +114,17 @@ if [[ $SIZE != 0 ]]; then
   SIZE=$(awk -v v=$SIZE 'BEGIN{i=index(v,"."); if(i==0){print v}; print substr(v,0,i+2) }')
 fi
 
-# output with style if $TERM is defined
-if [[ -n "$TERM" ]]; then
-  echo
-  printf "$(tput bold)         files total$(tput sgr0) %i\n" $COUNT_2
-  printf "$(tput bold)       files removed$(tput sgr0) %i\n" $COUNT
-  printf "$(tput bold)        size removed$(tput sgr0) %s Mb\n" $SIZE
-  echo
-
-# otherwise simple output (CodeBuild)
-else
+# simple output (when TERM is dumb)
+if [[ -n "$PRUNE_SIMPLY" ]]
+then
   echo files total: $COUNT_2
   echo files removed: $COUNT_2
   echo size removed: $SIZE 
+  exit
 fi
+
+echo
+printf "$(tput bold)         files total$(tput sgr0) %i\n" $COUNT_2
+printf "$(tput bold)       files removed$(tput sgr0) %i\n" $COUNT
+printf "$(tput bold)        size removed$(tput sgr0) %s Mb\n" $SIZE
+echo
