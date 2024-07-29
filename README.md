@@ -10,7 +10,9 @@
 wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | bash
 ```
 
-### Silent Mode (no output)
+## Options
+
+#### Silent Mode (no output)
 
 ```bash
 wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | PRUNE_SILENTLY=1 bash
@@ -23,7 +25,7 @@ export PRUNE_SILENTLY=1
 wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | bash
 ```
 
-### Simple output (no style)
+#### Simple output (no style)
 
 ```bash
 wget -qO- raw.githubusercontent.com/jeromedecoster/node-prune.sh/master/node-prune.sh | PRUNE_SIMPLY=1 bash
